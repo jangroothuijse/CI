@@ -2,7 +2,9 @@ CI
 ==
 
 Script to make a continuous integration server using a test server and a GIT repository
+
 usage: ./ci.sh /path/to/repos /path/to/deployment test-command
+
 Checks for a new revision, tests it if it exists and deploys it if the tests pass. Since this script cannot type your password, you have to make sure GIT will not ask for one.
 
 
@@ -27,6 +29,6 @@ This script is meant to be scheduled using a cronjob.
 Pass echo as test-command, it will get the revision id as argument and its output will be discarted. But it will succeed (return 0).
 
 
-# Do not want to deploy?
-Deployment is only done if the test-command returns 0, so just make a test that returns 1...
+## Do not want to deploy?
+Deployment is only done if the test-command returns 0, so to diable deploying: make a test that returns 1.
 This could be usefull if you are working with an application server, the test-command should then run tests, do the actual deployment and return 1 to disable the deployment behavior of this script.
